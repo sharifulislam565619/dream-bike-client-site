@@ -1,0 +1,17 @@
+.place-order-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.place-order-form input {
+  margin: 10px 0;
+}
+
+@media only screen and (max-width: 668px) {
+  .place-order-form {
+    width: 90%;
+  }
+}

@@ -3,6 +3,18 @@
   font-family: "Poppins", sans-serif;
 }
 
+.my-button {
+  background: linear-gradient(335.64deg, #fd609f -19.22%, #fa0a66 118.87%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+}
+
+.my-button:hover {
+  background: linear-gradient(45deg, #ff55c1, #f8072f);
+  color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
