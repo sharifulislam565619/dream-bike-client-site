@@ -19,6 +19,7 @@ const useFirebase = () => {
          .then((result) => {
             setError("")
             setUser(result.user);
+            saveUser(result.user.email, result.user.displayName, "PUT")
          }).catch((error) => {
             setError(error.message);
          });
@@ -34,6 +35,7 @@ const useFirebase = () => {
             setError("")
             history?.push(url)
             updateUserName(name)
+            saveUser(email, name, "POST")
          })
          .catch((error) => {
             setError(error.message
@@ -75,6 +77,17 @@ const useFirebase = () => {
       });
    }
 
+   //user collection
+   const saveUser = (email, name, method) => {
+      const data = { email, name }
+      fetch('http://localhost:5000/users', {
+         method: method,
+         headers: {
+            "content-type": "application/json"
+         },
+         body: JSON.stringify(data)
+      }).then()
+   }
 
 
    useEffect(() => {

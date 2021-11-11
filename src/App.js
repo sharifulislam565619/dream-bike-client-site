@@ -5,6 +5,7 @@ import AuthProvider from './components/Context/AuthProvider';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import Home from './components/Pages/Home/Home/Home';
 import Login from './components/Pages/Home/Login/Login';
+import NotFound from './components/Pages/Home/NotFound/NotFound';
 import Order from './components/Pages/Home/Order/Order';
 import Products from './components/Pages/Home/Products/Products';
 import Register from './components/Pages/Home/Register/Register';
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
+            </Route>
+            <Route exact path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>
