@@ -42,9 +42,9 @@ const ManageAllOrders = () => {
 
    const handleDelete = (id) => {
       setApproved(true)
-      const proceed = window.confirm("Are you sure delete this booking ??")
+      const proceed = window.confirm("Are you sure delete this Order ??")
       if (proceed) {
-         const url = `http://localhost:5000/delete/${id}`
+         const url = `http://localhost:5000/deleteOrder/${id}`
 
 
          fetch(url, {
@@ -78,10 +78,11 @@ const ManageAllOrders = () => {
                   <th className="table-head">#</th>
                   <th>Name</th>
                   <th className="table-head">Email Address</th>
-                  <th className="table-head">Phone</th>
-                  <th>Order id</th>
-                  <th>Status</th>
-                  <th>Action/Orders</th>
+                  {/* <th className="table-head">Phone</th> */}
+                  <th className="table-head">Address</th>
+                  <th className="table-head">Product name</th>
+                  <th className="table-head">Status</th>
+                  <th className="table-head">Action-Orders</th>
                </tr>
             </thead>
             {
@@ -92,14 +93,15 @@ const ManageAllOrders = () => {
                      <td className="table-body">{index + 1}</td>
                      <td>{order?.name}</td>
                      <td className="table-body">{order?.emailAddress}</td>
-                     <td className="table-body">{order?.phone}</td>
-                     <td className="table-body">{order?.order_id}</td>
+                     {/*  <td className="table-body">{order?.phone}</td> */}
+                     <td className="table-body">{order?.address}</td>
+                     <td className="table-body">{order?.orderName}</td>
 
-                     <td><p className={order?.status === "approved" ? "text-primary" : "text-dark"}>{order?.status}</p></td>
+                     <td><p className={order?.status === "Shipped" ? "text-primary" : "text-dark"}>{order?.status}</p></td>
                      <td>
-                        <button onClick={() => handleOrders(order?._id)} className={order?.status === "approved" ? "btn btn-outline-dark text-primary" : "btn btn-primary"}>Confirm</button>
+                        <button onClick={() => handleOrders(order?._id)} className={order?.status === "Shipped" ? "btn btn-primary text-white" : "btn btn-outline-dark"}>Confirm</button>
 
-                        <button onClick={() => handleDelete(order?._id)} className="btn btn-danger ms-2">Delete</button>
+                        <button onClick={() => handleDelete(order?._id)} className="btn btn-danger m-2">Delete</button>
                      </td>
                   </tr>
 

@@ -25,12 +25,9 @@ const MyOrders = () => {
 
    const handleDelete = (id) => {
       setDeleted(true)
-      const proceed = window.confirm("Are you sure delete this booking ??")
+      const proceed = window.confirm("Are you sure delete this Order ??")
       if (proceed) {
-         const url = `http://localhost:5000/product/delete/${id}`
-
-
-         fetch(url, {
+         fetch(`http://localhost:5000/deleteOrder/${id}`, {
             method: 'DELETE',
             headers: {
                "content-type": "application/json"
@@ -74,7 +71,7 @@ const MyOrders = () => {
 
                            </Card.Body>
 
-                           <td><button onClick={() => handleDelete(order._id)} className="btn btn-danger">Order Cancel</button></td>
+                           <td><button onClick={() => handleDelete(order?._id)} className="btn btn-danger">Order Cancel</button></td>
 
                         </Card>
 

@@ -32,6 +32,7 @@ const useFirebase = () => {
             history?.push(url)
             updateUserName(name)
             saveUser(email, name, "POST")
+            window.location.reload();
             history?.push(url)
          })
          .catch((error) => {

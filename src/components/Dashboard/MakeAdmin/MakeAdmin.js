@@ -8,7 +8,6 @@ const MakeAdmin = () => {
 
 
    const onSubmit = data => {
-      console.log(data);
 
       fetch(`http://localhost:5000/admin/${data.emailAddress}`, {
          method: "PUT",
