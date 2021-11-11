@@ -1,0 +1,43 @@
+:root{
+   --offcanvas-width:250px;
+   --toNavbarHeight:45px;
+}
+
+.sidebar-nav{
+  width: var(--offcanvas-width);
+}
+
+.toggle_btn{
+   display: none;
+}
+.text{
+   display: block;
+}
+
+@media(min-width:992px){
+   body{
+      overflow: auto !important;
+   }
+   .main{
+      margin-left: var(--offcanvas-width);
+   }
+   .sidebar-nav{
+      transform: none;
+      visibility: visible !important;
+      top:var(--toNavbarHeight);
+      height: calc(100%-var(--toNavbarHeight));
+   }
+}
+
+@media(max-width:992px){
+   .main{
+      margin-left: 0;
+   }
+   .toggle_btn{
+      display: block;
+   }
+   .text{
+      display: none;
+   }
+  
+}

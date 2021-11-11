@@ -5,15 +5,8 @@ import Navigation from '../../../Shared/Navigation/Navigation';
 import './Login.css';
 
 
-
-
-
-
-
-
-
 const Login = () => {
-   const { setError, signInWithGoogle, resetPassword, signInWithEmailPassword, error } = useAuth()
+   const { setError, signInWithGoogle, resetPassword, signInWithEmailPassword, error, setUser, saveUser } = useAuth()
    const [email, setEmail] = useState([])
    const [password, setPassword] = useState([])
 
@@ -40,6 +33,14 @@ const Login = () => {
 
    const handleSignInWithGoogle = () => {
       signInWithGoogle()
+         .then((result) => {
+            setError("")
+            setUser(result.user);
+            history.push(url)
+            saveUser(result.user.email, result.user.displayName, "PUT")
+         }).catch((error) => {
+            setError(error.message);
+         });
    }
 
 

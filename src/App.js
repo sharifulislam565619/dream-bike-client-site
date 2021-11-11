@@ -7,6 +7,7 @@ import Home from './components/Pages/Home/Home/Home';
 import Login from './components/Pages/Home/Login/Login';
 import NotFound from './components/Pages/Home/NotFound/NotFound';
 import Order from './components/Pages/Home/Order/Order';
+import PrivateRoute from './components/Pages/Home/Private/PrivateRoute';
 import Products from './components/Pages/Home/Products/Products';
 import Register from './components/Pages/Home/Register/Register';
 
@@ -32,9 +33,9 @@ function App() {
             <Route path="/product">
               <Products></Products>
             </Route>
-            <Route path="/order/:id">
+            <PrivateRoute path="/order/:id">
               <Order></Order>
-            </Route>
+            </PrivateRoute>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
@@ -44,7 +45,7 @@ function App() {
           </Switch>
         </Router>
       </AuthProvider>
-    </div>
+    </div >
   );
 }
 

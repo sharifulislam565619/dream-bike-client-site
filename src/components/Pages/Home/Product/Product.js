@@ -11,16 +11,16 @@ const Product = (props) => {
          <CardGroup>
             <Card className="py-3 data-cart">
 
-               <Card.Img variant="top" className="mx-auto" src={img} />
+               <Card.Img variant="top" className="mx-auto w-50" src={img} />
 
                <Card.Body>
                   <Card.Title><h6><strong>{name}</strong></h6></Card.Title>
                   <Card.Title><h6>Price: $ {price}</h6></Card.Title>
                   <Card.Text>
-                     <small> {description.split(' ').slice(0, 5).toString().replace(/,/g, ' ')}...</small>
+                     <small> {description.slice(0, 50)}...</small>
                   </Card.Text>
                </Card.Body>
-               <Link to={`/order/${_id}`}><button className="btn btn-primary">Order now</button></Link>
+               <Link to={`/order/${_id}`}><button className="btn my-button">Order now</button></Link>
 
 
             </Card>

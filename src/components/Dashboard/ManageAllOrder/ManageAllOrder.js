@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
       setApproved(true)
       const proceed = window.confirm("Are you sure delete this booking ??")
       if (proceed) {
-         const url = `https://polar-crag-36295.herokuapp.com/delete/${id}`
+         const url = `http://localhost:5000/delete/${id}`
 
 
          fetch(url, {

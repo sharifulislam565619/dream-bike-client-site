@@ -11,18 +11,14 @@ const useFirebase = () => {
    const [user, setUser] = useState()
    const [error, setError] = useState()
    const [isLoading, setIsLoading] = useState(true)
+   const [admin, setAdmin] = useState(false)
+
 
    //google signIn
    const auth = getAuth();
    const signInWithGoogle = () => {
-      signInWithPopup(auth, googleProvider)
-         .then((result) => {
-            setError("")
-            setUser(result.user);
-            saveUser(result.user.email, result.user.displayName, "PUT")
-         }).catch((error) => {
-            setError(error.message);
-         });
+      return signInWithPopup(auth, googleProvider)
+
    }
 
 
@@ -36,6 +32,7 @@ const useFirebase = () => {
             history?.push(url)
             updateUserName(name)
             saveUser(email, name, "POST")
+            history?.push(url)
          })
          .catch((error) => {
             setError(error.message
@@ -89,6 +86,11 @@ const useFirebase = () => {
       }).then()
    }
 
+   useEffect(() => {
+      fetch(`http://localhost:5000/users/${user?.email}`,)
+         .then(res => res.json())
+         .then(data => setAdmin(data.admin))
+   }, [user?.email])
 
    useEffect(() => {
       onAuthStateChanged(auth, (user) => {
@@ -124,7 +126,7 @@ const useFirebase = () => {
    }
 
    return {
-      signInWithGoogle, signInWithEmailPassword, user, error, isLoading, logOut, registerWithEmailPassword, resetPassword, setError
+      signInWithGoogle, signInWithEmailPassword, user, error, isLoading, logOut, admin, registerWithEmailPassword, resetPassword, setError, setUser, saveUser
    }
 };
 

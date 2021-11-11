@@ -18,7 +18,7 @@ const AddProducts = () => {
          .then(res => res.json())
          .then(result => {
             if (result.acknowledged) {
-               alert("Wow The hotel is successfully added!!")
+               alert("Wow The product is successfully added!!")
                reset()
             }
          })
