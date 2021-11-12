@@ -1,7 +1,12 @@
 .navbar a {
   text-decoration: none;
-  color: white;
+  color: #fff;
   margin-right: 20px;
+}
+
+.navbar a:hover {
+  border-bottom:3px solid white ;
+ 
 }
 
 .displayName {

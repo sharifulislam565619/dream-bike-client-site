@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.PNG';
+import userPhoto from '../../../images/userPhoto.png';
 import useAuth from '../../hooks/useAuth';
 import './Navigation.css';
 
@@ -18,15 +19,16 @@ const Navigation = () => {
                </Navbar.Brand>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                <Navbar.Collapse id="responsive-navbar-nav" >
-                  <Nav className="ms-auto">
+                  <Nav className="ms-auto align-items-center">
                      <Link to="/home">Home</Link>
                      <Link to="/product">Product</Link>
                      {user?.email && <Link to="/dashboard">Dashboard</Link>}
                      {user?.email ? <div>
                         <small className="displayName">{user?.displayName}</small>
-                        <button onClick={logOut} className="btn my-button">Logout</button>
+                        <small><img style={{ width: "50px", borderRadius: "50%", marginRight: "5px" }} src={user?.photoURL || userPhoto} alt="" /></small>
+                        <button onClick={logOut} className="btn my-button"><i className="fas fa-sign-out-alt"></i> Log out</button>
                      </div> :
-                        <Link to="/login">Login</Link>}
+                        <Link to="/login" className="btn my-button"><i className="fas fa-sign-in-alt"></i> Login</Link>}
                   </Nav>
                </Navbar.Collapse>
             </Container>

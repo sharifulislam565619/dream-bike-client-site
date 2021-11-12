@@ -8,8 +8,8 @@ const googleProvider = new GoogleAuthProvider();
 
 const useFirebase = () => {
 
-   const [user, setUser] = useState()
-   const [error, setError] = useState()
+   const [user, setUser] = useState({})
+   const [error, setError] = useState('')
    const [isLoading, setIsLoading] = useState(true)
    const [admin, setAdmin] = useState(false)
 
@@ -29,11 +29,10 @@ const useFirebase = () => {
          .then((userCredential) => {
             setUser(userCredential.user)
             setError("")
-            history?.push(url)
             updateUserName(name)
             saveUser(email, name, "POST")
-            window.location.reload();
             history?.push(url)
+            window.location.reload();
          })
          .catch((error) => {
             setError(error.message
@@ -53,8 +52,9 @@ const useFirebase = () => {
             setUser(user)
             setError("")
             history?.push(url)
+            window.location.reload();
          })
-         .catch((error) => {
+         .catch(() => {
             setError("Enter your valid email password")
          })
          .finally(() => {
@@ -90,7 +90,7 @@ const useFirebase = () => {
    useEffect(() => {
       fetch(`http://localhost:5000/users/${user?.email}`,)
          .then(res => res.json())
-         .then(data => setAdmin(data.admin))
+         .then(data => setAdmin(data?.admin))
    }, [user?.email])
 
    useEffect(() => {

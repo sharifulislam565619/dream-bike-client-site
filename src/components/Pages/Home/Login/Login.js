@@ -36,8 +36,9 @@ const Login = () => {
          .then((result) => {
             setError("")
             setUser(result.user);
+            saveUser(result?.user?.email, result?.user?.displayName, "PUT")
             history.push(url)
-            saveUser(result.user.email, result.user.displayName, "PUT")
+            window.location.reload();
          }).catch((error) => {
             setError(error.message);
          });

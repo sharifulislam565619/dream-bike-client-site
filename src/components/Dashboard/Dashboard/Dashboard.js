@@ -1,7 +1,9 @@
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import userPhoto from '../../../images/userPhoto.png';
 import useAuth from '../../hooks/useAuth';
 import NotFound from '../../Pages/Home/NotFound/NotFound';
+import AdminRoute from '../../Pages/Home/Private/AdminRoute';
 import AddProducts from '../AddProducts/AddProducts';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
@@ -15,7 +17,7 @@ import ManageProducts from './MangeProducts/ManageProducts';
 
 const Dashboard = () => {
    let { path, url } = useRouteMatch();
-   const { logOut } = useAuth()
+   const { logOut, admin, user } = useAuth()
 
    return (
       <>
@@ -31,7 +33,7 @@ const Dashboard = () => {
                </Navbar.Brand>
                <Navbar.Collapse id="responsive-navbar-nav" >
                   <Nav className="ms-auto">
-
+                     <small><img style={{ width: "40px", borderRadius: "50%", marginRight: "20px" }} src={user?.photoURL || userPhoto} alt="" /></small>
                   </Nav>
                </Navbar.Collapse>
             </>
@@ -45,19 +47,23 @@ const Dashboard = () => {
 
             </div>
             <div className="offcanvas-body ">
-               <Nav className="justify-content-start flex-grow-1 pe-3">
+               <Nav className="justify-content-start flex-grow-1 pe-3 my-dashboard">
 
-                  <ul>
-                     <li><Link to="/home">Back to Home</Link></li>
-                     <li><Link to={`${url}/myOrders`}>MyOrders</Link></li>
-                     <li> <Link to={`${url}/manageOllOrders`}>ManageAllOrders</Link></li>
-                     <li><Link to={`${url}/addProduct`}>Add A Product</Link></li>
-                     <li><Link to={`${url}/makeAdmin`}>Make admin</Link></li>
-                     <li><Link to={`${url}/payment`}>Payment</Link></li>
-                     <li><Link to={`${url}/review`}>Review</Link></li>
-                     <li> <Link to={`${url}/manageProducts`}>ManageProducts</Link></li>
+                  <ul className="p-0">
+                     <li><i className="fas fa-home"></i> <Link to="/home">Home</Link></li>
+                     {!admin && <div>
+                        <li><i className="fas fa-align-justify"></i> <Link to={`${url}/myOrders`}>MyOrders</Link></li>
+                        <li><i className="fas fa-pen-square"></i> <Link to={`${url}/review`}>Add a Review</Link></li>
+                        <li><i className="far fa-credit-card"></i><Link to={`${url}/payment`}>Payment</Link></li>
+                     </div>}
+                     {admin && <div>
+                        <li><i className="fas fa-align-justify"></i> <Link to={`${url}/manageOllOrders`}>ManageAllOrders</Link></li>
+                        <li><i className="fas fa-plus-circle"></i> <Link to={`${url}/addProduct`}>Add A Product</Link></li>
+                        <li><i className="fas fa-user-shield"></i> <Link to={`${url}/makeAdmin`}>Make admin</Link></li>
+                        <li><i className="fas fa-luggage-cart"></i> <Link to={`${url}/manageProducts`}>ManageProducts</Link></li>
+                     </div>}
                   </ul>
-                  <button onClick={logOut} className="btn my-button">LogOut</button>
+                  <button onClick={logOut} className="btn my-button"><i className="fas fa-sign-out-alt"></i> Sign out</button>
                </Nav>
 
 
@@ -66,31 +72,35 @@ const Dashboard = () => {
          </div>
          <div className="main mt-5">
             <Switch>
-               <Route exact path={path}>
+               {admin ? <Route exact path={path}>
                   <ManageAllOrder></ManageAllOrder>
+               </Route> : <Route exact path={path}>
+                  <MyOrders></MyOrders>
                </Route>
+
+               }
                <Route exact path={`${path}/myOrders`}>
                   <MyOrders></MyOrders>
                </Route>
-               <Route exact path={`${path}/manageOllOrders`}>
+               <AdminRoute exact path={`${path}/manageOllOrders`}>
                   <ManageAllOrder></ManageAllOrder>
-               </Route>
-               <Route exact path={`${path}/makeAdmin`}>
+               </AdminRoute>
+               <AdminRoute exact path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
-               </Route>
+               </AdminRoute>
 
-               <Route path={`${path}/addProduct`}>
+               <AdminRoute path={`${path}/addProduct`}>
                   <AddProducts />
-               </Route>
+               </AdminRoute>
                <Route path={`${path}/payment`}>
                   <Payment />
                </Route>
                <Route path={`${path}/review`}>
                   <Review />
                </Route>
-               <Route path={`${path}/manageProducts`}>
+               <AdminRoute path={`${path}/manageProducts`}>
                   <ManageProducts />
-               </Route>
+               </AdminRoute>
                <Route exact path={path / "*"}>
                   <NotFound />
                </Route>

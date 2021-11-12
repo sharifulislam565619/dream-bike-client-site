@@ -11,22 +11,15 @@ const MyOrders = () => {
    const [isLoading, setIsLoading] = useState(true)
 
 
-   useEffect(() => {
-      fetch(`http://localhost:5000/myOrders/${user?.email}`)
-         .then(res => res.json())
-         .then(data => {
 
-            setOrders(data)
-            setIsLoading(false)
 
-         });
-   }, [deleted]);
 
 
    const handleDelete = (id) => {
       setDeleted(true)
       const proceed = window.confirm("Are you sure delete this Order ??")
       if (proceed) {
+
          fetch(`http://localhost:5000/deleteOrder/${id}`, {
             method: 'DELETE',
             headers: {
@@ -43,12 +36,22 @@ const MyOrders = () => {
       }
    }
 
+   useEffect(() => {
+      fetch(`http://localhost:5000/myOrders/${user?.email}`)
+         .then(res => res.json())
+         .then(data => {
+
+            setOrders(data)
+            setIsLoading(false)
+
+         });
+   }, [deleted]);
 
 
    return (
       <div>
 
-         <h2 className="text-success">Your total order is : {orders.length}</h2>
+         <h2 className="text-success">Your total order is : {orders?.length}</h2>
 
          {
             isLoading && <Spinner className="fs-3" animation="border" variant="black" />
@@ -57,12 +60,12 @@ const MyOrders = () => {
          <Container>
             <Row className="g-4">
                {
-                  orders.map((order, index) => <Col xl={4} lg={4} md={6} sm={12}
+                  orders?.map((order, index) => <Col xl={4} lg={4} md={6} sm={12}
                      key={order._id}
                   >
                      <CardGroup>
                         <Card className="py-3 data-cart">
-                           <div className="ms-auto"><button >Order {order?.status}</button></div>
+                           <div className="ms-auto"><button style={{ background: "#7a946482", border: "none" }} >Order {order?.status}</button></div>
                            <Card.Img variant="top" className="mx-auto w-50" src={order?.img} />
 
                            <Card.Body>
@@ -71,7 +74,7 @@ const MyOrders = () => {
 
                            </Card.Body>
 
-                           <td><button onClick={() => handleDelete(order?._id)} className="btn btn-danger">Order Cancel</button></td>
+                           <td><button onClick={() => handleDelete(order?._id)} className="btn btn-danger">Cancel Order</button></td>
 
                         </Card>
 

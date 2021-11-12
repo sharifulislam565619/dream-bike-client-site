@@ -1,12 +1,25 @@
 .banner img {
   width: 10%;
-  height: 500px;
+  height: 550px;
 }
 
+.Typewriter__wrapper {
+  font-size: 50px;
+  color: #1bff00;
+  font-weight: bold;
+ 
+}
+
+.carousel-caption{
+  top: 5%;
+}
 @media only screen and (max-width: 668px) {
   .banner img {
     height: 250px;
   }
+  .Typewriter__wrapper {
+    font-size: 30px;
+}
 }
 @media only screen and (min-width: 669px) and (max-width: 990px) {
   .banner img {

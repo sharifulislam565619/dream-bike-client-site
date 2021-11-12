@@ -1,4 +1,30 @@
 .footer {
-  background-color: #0d6efd;
+  background-color: #2f32fa;
   color: #fff;
+}
+
+/* .footer {
+  background-color: rgb(50 50 50);
+  color: rgb(219, 219, 219);
+} */
+.social_icon i {
+  font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  padding: 8px;
+  border-radius: 50px;
+  color: #1400c5c4;
+}
+.social_icon i:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.footer a {
+  text-decoration: none;
+  margin-right: 18px;
+  color: rgb(211, 211, 211);
+}
+.footer a:hover {
+  color: rgb(255, 255, 255);
 }

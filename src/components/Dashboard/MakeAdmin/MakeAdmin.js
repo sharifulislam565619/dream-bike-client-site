@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 const MakeAdmin = () => {
 
 
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { register, handleSubmit, reset } = useForm();
 
 
    const onSubmit = data => {
@@ -27,7 +27,7 @@ const MakeAdmin = () => {
 
    return (
       <div>
-         <h2 className="mt-3">Make a new admin</h2>
+         <h2 className="mt-5 text-success">Make a new admin</h2>
          <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
             <input required type="text" placeholder="Enter email"  {...register("emailAddress")} />
             <input type="submit" className="btn btn-primary" value="Add admin" />

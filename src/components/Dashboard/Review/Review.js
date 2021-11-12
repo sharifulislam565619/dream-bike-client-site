@@ -3,11 +3,10 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 
 const Review = () => {
-   const { register, handleSubmit, reset, formState: { errors } } = useForm()
+   const { register, handleSubmit, reset } = useForm()
    const { user } = useAuth()
-   console.log(user);
    const onSubmit = data => {
-      data.photoUrl = user?.photoURL;
+      data.photoURL = user?.photoURL;
       fetch("http://localhost:5000/review", {
          method: "POST",
          headers: { "content-type": "application/json" },
@@ -23,8 +22,8 @@ const Review = () => {
    };
 
    return (
-      <div>
-         <h2>Please review your opinion</h2>
+      <div >
+         <h2 style={{ marginTop: "120px", color: "#0ba75f" }}>Please express your opinion</h2>
 
 
          <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
@@ -35,7 +34,7 @@ const Review = () => {
             <textarea
                {...register("comment", { required: true })}
                placeholder="Comment" />
-            <input type="submit" className="btn btn-primary" value="submit" />
+            <input type="submit" className="btn my-button" value="submit" />
 
 
          </form>

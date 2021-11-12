@@ -43,7 +43,7 @@ const ManageProducts = () => {
 
    return (
       <div>
-         <h2>Manage all Products</h2>
+         <h2 className="text-success">Manage all Products</h2>
          {
             isLoading && <Spinner className="fs-3 my-5" animation="border" variant="black" />
          }
@@ -67,7 +67,7 @@ const ManageProducts = () => {
                   <tr>
                      <td className="table-body">{index + 1}</td>
                      <td>{product?.name}</td>
-                     <td className="table-body"><img className="w-75" src={product?.img} alt="" /></td>
+                     <td className="table-body"><img style={{ width: "120px" }} src={product?.img} alt="" /></td>
                      <td>{product?.price}</td>
                      <td className="table-body">{product?.description.slice(0, 100)}</td>
 

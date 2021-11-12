@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #6271ff, #e739f5);
+  /* background: linear-gradient(90deg, #6271ff, #e739f5); */
 }
 
 .my-cart {
@@ -17,7 +17,7 @@
   -moz-box-shadow: -1px 15px 21px -6px rgba(169, 49, 49, 0.61);
 }
 
-login-form input {
+.login-form input {
   padding: 7px 12px;
   width: 300px;
   margin: 5px 0px;
@@ -54,9 +54,7 @@ input:focus {
 .google {
   background-color: #e04a39;
 }
-.github {
-  background-color: #007900;
+.google:hover {
+  background-color: #ff1a01;
 }
-.facebook {
-  background-color: #0e4dca;
-}
+

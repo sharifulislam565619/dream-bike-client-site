@@ -3,7 +3,9 @@ import { Row, Spinner } from 'react-bootstrap';
 import Footer from '../../../Shared/Footer/Footer';
 import Navigation from '../../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
+import Contact from '../Contact/Contact';
 import Product from '../Product/Product';
+import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
 
@@ -23,7 +25,8 @@ const Home = () => {
          <Navigation></Navigation>
          <Banner></Banner>
          <div>
-            <h2>Our Products</h2>
+            <h2 className="text-success mt-4">Our Products</h2>
+            <hr className="w-25 mx-auto mb-5" />
 
             {
                isLoading && <Spinner className="fs-3 my-5" animation="border" variant="black" />
@@ -42,6 +45,8 @@ const Home = () => {
 
 
          </div>
+         <Reviews />
+         <Contact />
          <Footer></Footer>
 
       </div>

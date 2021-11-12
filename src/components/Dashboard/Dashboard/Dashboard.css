@@ -1,6 +1,26 @@
 :root{
-   --offcanvas-width:250px;
+   --offcanvas-width:275px;
    --toNavbarHeight:45px;
+}
+
+.my-dashboard li{
+list-style: none;
+text-align: start;
+margin-bottom:10px ;
+}
+.my-dashboard a{
+text-decoration: none;
+color: white;
+padding: 5px 5px;
+border-radius: 10px;
+
+}
+.my-dashboard a:focus{
+color: rgb(25, 1, 238);
+}
+.my-dashboard a:hover{
+background-color: white;
+color: black;
 }
 
 .sidebar-nav{

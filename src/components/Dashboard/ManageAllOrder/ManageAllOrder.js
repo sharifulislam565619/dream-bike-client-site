@@ -72,17 +72,17 @@ const ManageAllOrders = () => {
             isLoading && <Spinner className="fs-3" animation="border" variant="black" />
          }
 
-         <Table responsive="sm md">
+         <Table responsive="sm md lg">
             <thead>
                <tr>
                   <th className="table-head">#</th>
                   <th>Name</th>
                   <th className="table-head">Email Address</th>
-                  {/* <th className="table-head">Phone</th> */}
+                  <th className="table-head">Phone</th>
                   <th className="table-head">Address</th>
                   <th className="table-head">Product name</th>
                   <th className="table-head">Status</th>
-                  <th className="table-head">Action-Orders</th>
+                  <th className="table-head">Action Orders</th>
                </tr>
             </thead>
             {
@@ -93,11 +93,10 @@ const ManageAllOrders = () => {
                      <td className="table-body">{index + 1}</td>
                      <td>{order?.name}</td>
                      <td className="table-body">{order?.emailAddress}</td>
-                     {/*  <td className="table-body">{order?.phone}</td> */}
+                     <td className="table-body">{order?.phone}</td>
                      <td className="table-body">{order?.address}</td>
                      <td className="table-body">{order?.orderName}</td>
-
-                     <td><p className={order?.status === "Shipped" ? "text-primary" : "text-dark"}>{order?.status}</p></td>
+                     <td><small className={order?.status === "Shipped" ? "text-primary" : "text-dark"}>{order?.status}</small></td>
                      <td>
                         <button onClick={() => handleOrders(order?._id)} className={order?.status === "Shipped" ? "btn btn-primary text-white" : "btn btn-outline-dark"}>Confirm</button>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import bg1 from '../../../../images/bg1.jpg';
-import bg2 from '../../../../images/bg2.jpg';
-import bg3 from '../../../../images/bg3.jpg';
+import Typewriter from 'typewriter-effect';
+import bg from '../../../../images/bg1.jpg';
+import bg3 from '../../../../images/bg2.jpg';
 import './Banner.css';
 
 const Banner = () => {
@@ -11,24 +11,35 @@ const Banner = () => {
          <Carousel.Item>
             <img
                className="d-block w-100"
-               src={bg1}
+               src='https://i.ibb.co/MMSLXyh/racing-hero.jpg'
                alt="First slide"
             />
             <Carousel.Caption>
-               <h3>First slide label</h3>
-               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+               <Typewriter
+                  options={{
+                     strings: `Buy the bike of your dreams`,
+                     autoStart: true,
+                     loop: true,
+                  }}
+               />
+
             </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
             <img
                className="d-block w-100"
-               src={bg2}
+               src={bg}
                alt="Second slide"
             />
 
             <Carousel.Caption>
-               <h3>Second slide label</h3>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+               <Typewriter
+                  options={{
+                     strings: `Buy the bike of your dreams`,
+                     autoStart: true,
+                     loop: true,
+                  }}
+               />
             </Carousel.Caption>
          </Carousel.Item>
          <Carousel.Item>
@@ -39,8 +50,13 @@ const Banner = () => {
             />
 
             <Carousel.Caption>
-               <h3>Third slide label</h3>
-               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+               <Typewriter
+                  options={{
+                     strings: `Buy the bike of your dreams`,
+                     autoStart: true,
+                     loop: true,
+                  }}
+               />
             </Carousel.Caption>
          </Carousel.Item>
       </Carousel>

@@ -1,0 +1,35 @@
+#contact {
+   background: #a5a5a54f;
+ }
+ #contact textarea {
+   border-radius: 10px;
+   padding: 8px 14px;
+   outline: none;
+   border: none;
+   width: 50%;
+ }
+hr {
+   width: 200px;
+   border-top: 6px dotted #000000;
+   margin: auto;
+   background: none;
+   margin-bottom: 40px;
+ }
+ 
+ #contact input {
+   padding: 7px 12px;
+   margin: 10px 0px;
+   border-radius: 10px;
+   border: none;
+   outline: none;
+   width: 50%;
+ }
+ 
+ @media only screen and (max-width: 668px) {
+   #contact input {
+     width: 90%;
+   }
+   #contact textarea {
+     width: 90%;
+   }
+}

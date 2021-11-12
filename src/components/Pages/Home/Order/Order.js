@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import { Card, Col, Row, Spinner } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -59,38 +59,40 @@ const Order = () => {
    return (
       <div>
          <Navigation />
-         <Row xs={1} md={2} className="g-4">
+         <Container>
+            <Row xs={1} md={2} className="g-4">
 
-            <Col>
-               {
-                  isLoading && <Spinner className="mt-5 fs-3" animation="border" variant="black" />
-               }
-               <Card>
-                  <Card.Img variant="top" className='w-75 m-3 mx-auto' src={product?.img} />
-                  <Card.Body>
-                     <Card.Title>{product?.name}</Card.Title>
-                     <Card.Title>Price: ${product?.price}</Card.Title>
-                     <Card.Text>
-                        {product?.description}
-                     </Card.Text>
-                  </Card.Body>
-               </Card>
-            </Col>
+               <Col>
+                  {
+                     isLoading && <Spinner className="mt-5 fs-3" animation="border" variant="black" />
+                  }
+                  <Card>
+                     <Card.Img variant="top" className='w-75 m-3 mx-auto' src={product?.img} />
+                     <Card.Body>
+                        <Card.Title>{product?.name}</Card.Title>
+                        <Card.Title>Price: ${product?.price}</Card.Title>
+                        <Card.Text className="text-start">
+                           {product?.description}
+                        </Card.Text>
+                     </Card.Body>
+                  </Card>
+               </Col>
 
-            <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
+               <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
 
-               <input required placeholder="Your name" defaultValue={user?.displayName} {...register("name", { required: true })} />
-               <input required type="text" placeholder="Your email" defaultValue={user?.email} {...register("emailAddress")} />
-               <input required placeholder="Your phone" type="number" {...register("phone",)} />
-               <textarea
-                  {...register("address", { required: true })}
-                  placeholder="Address" />
-               <input type="submit" className="btn btn-primary" value="Order Submit" />
+                  <input required placeholder="Your name" defaultValue={user?.displayName} {...register("name", { required: true })} />
+                  <input required type="text" placeholder="Your email" defaultValue={user?.email} {...register("emailAddress")} />
+                  <input required placeholder="Your phone" type="number" {...register("phone",)} />
+                  <textarea
+                     {...register("address", { required: true })}
+                     placeholder="Address" />
+                  <input type="submit" className="btn btn-primary" value="Order Submit" />
 
-               <Link to="/home">	<button className="btn btn-outline-dark">back to home page</button></Link>
-            </form>
+                  <Link to="/home">	<button className="btn btn-outline-dark">back to home page</button></Link>
+               </form>
 
-         </Row>
+            </Row>
+         </Container>
 
          <Footer></Footer>
       </div>

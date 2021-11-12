@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, #6271ff, #e739f5);
+  /* background: linear-gradient(90deg, #6271ff, #e739f5); */
 }
 
 .my-cart {
@@ -17,7 +17,7 @@
   -moz-box-shadow: -1px 15px 21px -6px rgba(169, 49, 49, 0.61);
 }
 
-register-form input {
+.register-form input {
   padding: 7px 14px;
   width: 300px;
   margin: 5px 0px;
@@ -37,6 +37,6 @@ input:focus {
   color: white;
 }
 .register-btn:hover {
-  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgb(243, 6, 6), rgb(0, 0, 241));
   color: white;
 }

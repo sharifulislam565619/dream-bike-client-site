@@ -1,10 +1,9 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
 import './AddProducts.css';
 
 const AddProducts = () => {
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { register, handleSubmit, reset } = useForm();
 
 
    const onSubmit = data => {
@@ -29,7 +28,7 @@ const AddProducts = () => {
 
    return (
       <div>
-         <h1>Add a new Product</h1>
+         <h1 className="text-success">Add a new Product</h1>
          <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
 
             <input required placeholder="product name" {...register("name")} />
@@ -41,9 +40,7 @@ const AddProducts = () => {
                {...register("description", { required: true })}
                placeholder="Description" />
 
-            <input type="submit" className="btn btn-primary" value="Add new product" />
-
-            <Link to="/home">	<button className="btn btn-outline-dark">back to home page</button></Link>
+            <input type="submit" className="btn my-button" value="Add new product" />
          </form>
       </div>
    );
