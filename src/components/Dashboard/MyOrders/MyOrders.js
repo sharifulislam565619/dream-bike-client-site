@@ -20,7 +20,7 @@ const MyOrders = () => {
       const proceed = window.confirm("Are you sure delete this Order ??")
       if (proceed) {
 
-         fetch(`http://localhost:5000/deleteOrder/${id}`, {
+         fetch(`https://fathomless-taiga-77170.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE',
             headers: {
                "content-type": "application/json"
@@ -37,7 +37,7 @@ const MyOrders = () => {
    }
 
    useEffect(() => {
-      fetch(`http://localhost:5000/myOrders/${user?.email}`)
+      fetch(`https://fathomless-taiga-77170.herokuapp.com/myOrders/${user?.email}`)
          .then(res => res.json())
          .then(data => {
 

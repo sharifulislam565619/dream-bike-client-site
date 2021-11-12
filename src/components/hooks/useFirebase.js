@@ -78,7 +78,7 @@ const useFirebase = () => {
    //user collection
    const saveUser = (email, name, method) => {
       const data = { email, name }
-      fetch('http://localhost:5000/users', {
+      fetch('https://fathomless-taiga-77170.herokuapp.com/users', {
          method: method,
          headers: {
             "content-type": "application/json"
@@ -88,7 +88,7 @@ const useFirebase = () => {
    }
 
    useEffect(() => {
-      fetch(`http://localhost:5000/users/${user?.email}`,)
+      fetch(`https://fathomless-taiga-77170.herokuapp.com/users/${user?.email}`,)
          .then(res => res.json())
          .then(data => setAdmin(data?.admin))
    }, [user?.email])

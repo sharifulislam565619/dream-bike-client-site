@@ -7,7 +7,7 @@ const ManageProducts = () => {
 
 
    useEffect(() => {
-      fetch("http://localhost:5000/products")
+      fetch("https://fathomless-taiga-77170.herokuapp.com/products")
          .then(res => res.json())
          .then(data => {
             setProducts(data)
@@ -20,7 +20,7 @@ const ManageProducts = () => {
       setApproved(true)
       const proceed = window.confirm("Are you sure delete this Product ??")
       if (proceed) {
-         const url = `http://localhost:5000/deleteProduct/${id}`
+         const url = `https://fathomless-taiga-77170.herokuapp.com/deleteProduct/${id}`
 
 
          fetch(url, {

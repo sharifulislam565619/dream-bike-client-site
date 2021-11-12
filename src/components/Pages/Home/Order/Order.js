@@ -27,7 +27,7 @@ const Order = () => {
       data.price = product?.price;
       data.order_id = id;
 
-      fetch("http://localhost:5000/order", {
+      fetch("https://fathomless-taiga-77170.herokuapp.com/order", {
          method: "POST",
          headers: { "content-type": "application/json" },
          body: JSON.stringify(data),
@@ -44,7 +44,7 @@ const Order = () => {
 
 
    useEffect(() => {
-      fetch(`http://localhost:5000/product/${id}`)
+      fetch(`https://fathomless-taiga-77170.herokuapp.com/product/${id}`)
          .then(res => res.json())
          .then(data => {
             setProduct(data)

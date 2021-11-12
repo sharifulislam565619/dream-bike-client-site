@@ -7,7 +7,7 @@ const Review = () => {
    const { user } = useAuth()
    const onSubmit = data => {
       data.photoURL = user?.photoURL;
-      fetch("http://localhost:5000/review", {
+      fetch("https://fathomless-taiga-77170.herokuapp.com/review", {
          method: "POST",
          headers: { "content-type": "application/json" },
          body: JSON.stringify(data),

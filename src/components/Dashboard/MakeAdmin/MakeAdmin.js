@@ -9,7 +9,7 @@ const MakeAdmin = () => {
 
    const onSubmit = data => {
 
-      fetch(`http://localhost:5000/admin/${data.emailAddress}`, {
+      fetch(`https://fathomless-taiga-77170.herokuapp.com/admin/${data.emailAddress}`, {
          method: "PUT",
          headers: { "content-type": "application/json" },
          body: JSON.stringify(data),

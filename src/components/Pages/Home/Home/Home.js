@@ -13,7 +13,7 @@ const Home = () => {
    const [isLoading, setIsLoading] = useState(true)
 
    useEffect(() => {
-      fetch("http://localhost:5000/products")
+      fetch("https://fathomless-taiga-77170.herokuapp.com/products")
          .then(res => res.json())
          .then(data => {
             setProducts(data)

@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
 
 
    useEffect(() => {
-      fetch("http://localhost:5000/manageOrders")
+      fetch("https://fathomless-taiga-77170.herokuapp.com/manageOrders")
          .then(res => res.json())
          .then(data => {
             setOrders(data)
@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
 
    const handleOrders = (id) => {
       setApproved(true)
-      const url = `http://localhost:5000/status/${id}`
+      const url = `https://fathomless-taiga-77170.herokuapp.com/status/${id}`
       const status = {
          status: "Shipped"
       }
@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
       setApproved(true)
       const proceed = window.confirm("Are you sure delete this Order ??")
       if (proceed) {
-         const url = `http://localhost:5000/deleteOrder/${id}`
+         const url = `https://fathomless-taiga-77170.herokuapp.com/deleteOrder/${id}`
 
 
          fetch(url, {
