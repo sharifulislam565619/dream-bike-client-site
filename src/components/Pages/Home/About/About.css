@@ -1,0 +1,9 @@
+.about {
+   background-color: rgb(225 255 178 / 71%);
+ }
+ 
+ .about img {
+   border-radius: 50%;
+   border: 1px solid rgb(175, 179, 179);
+   padding: 10px;
+ }

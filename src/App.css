@@ -10,6 +10,10 @@
   border-radius: 20px;
 }
 
+.modal-open {
+  padding-right: 0px !important;
+}
+
 .my-button:hover {
   background: linear-gradient(45deg, #ff55c1, #f8072f);
   color: white;

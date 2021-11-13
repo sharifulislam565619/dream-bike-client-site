@@ -19,6 +19,9 @@ const Home = () => {
             setProducts(data)
             setIsLoading(false)
          })
+         .catch(() => {
+
+         })
    }, [])
    return (
       <div>

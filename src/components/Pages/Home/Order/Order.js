@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { Button, Card, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,8 @@ import './Order.css';
 
 const Order = () => {
    const { id } = useParams()
+   const [show, setShow] = useState(false);
+   const handleClose = () => setShow(false);
 
    const [product, setProduct] = useState({})
    const [isLoading, setIsLoading] = useState(true)
@@ -35,7 +37,7 @@ const Order = () => {
          .then((res) => res.json())
          .then((result) => {
             if (result.acknowledged) {
-               alert("Congratulation your order is proceed.")
+               setShow(true)
                reset()
             }
          });
@@ -58,9 +60,26 @@ const Order = () => {
 
    return (
       <div>
+         {
+            show && <div>
+
+               <Modal className="modal-open" show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                     <Modal.Title>Dream bike says</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Congratulation your order is proceed !!</Modal.Body>
+                  <Modal.Footer>
+                     <Button variant="secondary" onClick={handleClose}>
+                        Ok
+                     </Button>
+                  </Modal.Footer>
+               </Modal>
+            </div>
+         }
          <Navigation />
          <Container>
             <Row xs={1} md={2} className="g-4">
+
 
                <Col>
                   {
@@ -86,13 +105,17 @@ const Order = () => {
                   <textarea
                      {...register("address", { required: true })}
                      placeholder="Address" />
-                  <input type="submit" className="btn btn-primary" value="Order Submit" />
+                  <input type="submit" className="btn my-button" value="Order Submit" />
 
                   <Link to="/home">	<button className="btn btn-outline-dark">back to home page</button></Link>
                </form>
 
+
+
             </Row>
+
          </Container>
+
 
          <Footer></Footer>
       </div>

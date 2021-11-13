@@ -70,7 +70,7 @@ const Login = () => {
 
                <form onSubmit={handleSignInEmailPassword} action="">
 
-                  <input onChange={handleEmail} type="email" required placeholder="Enter your email" />
+                  <input onChange={handleEmail} type="email" required placeholder='Enter your email' />
                   <br />
                   <input onChange={handlePassword} type="password" required placeholder="Enter password" /><br />
                   <input className="login-btn" type="submit" value="Login" /><br />

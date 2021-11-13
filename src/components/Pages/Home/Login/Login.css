@@ -58,3 +58,17 @@ input:focus {
   background-color: #ff1a01;
 }
 
+
+ /* .wrapper input[type="text"] {
+  position: relative; 
+}
+
+input { font-family: 'FontAwesome'; } 
+
+.wrapper:before {
+  font-family: 'FontAwesome';
+  color:red;
+  position: relative;
+  left: -5px;
+  content: "\f007";
+} */

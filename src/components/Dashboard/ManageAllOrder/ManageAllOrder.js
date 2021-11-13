@@ -16,6 +16,8 @@ const ManageAllOrders = () => {
          .then(data => {
             setOrders(data)
             setIsLoading(false)
+         }).catch(() => {
+
          })
    }, [approved])
 

@@ -1,11 +1,15 @@
 .navbar a {
   text-decoration: none;
   color: #fff;
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .navbar a:hover {
   border-bottom:3px solid white ;
+ 
+}
+.navbar a:last-child {
+  border-bottom:none;
  
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Card, CardGroup, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import './Product.css';
 
 
 const Product = (props) => {
+   const { admin } = useAuth()
 
    const { _id, img, price, description, name } = props.product
    return (
@@ -16,12 +18,12 @@ const Product = (props) => {
 
                <Card.Body>
                   <Card.Title><h6><strong>{name}</strong></h6></Card.Title>
-                  <Card.Title><h6>Price: $ {price}</h6></Card.Title>
+                  <Card.Title><h6><strong>Price:</strong> $ {price}</h6></Card.Title>
                   <Card.Text>
                      <small> {description.slice(0, 50)}...</small>
                   </Card.Text>
                </Card.Body>
-               <Link to={`/order/${_id}`}><button className="btn my-button">Order now</button></Link>
+               {!admin && <Link to={`/order/${_id}`}><button className="btn my-button">Buy now</button></Link>}
 
 
             </Card>

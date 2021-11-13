@@ -15,6 +15,9 @@ const Products = () => {
             setProducts(data)
             setIsLoading(false)
          })
+         .catch(() => {
+
+         })
    }, [])
    return (
       <div >

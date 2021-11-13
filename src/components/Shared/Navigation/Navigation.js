@@ -22,6 +22,7 @@ const Navigation = () => {
                   <Nav className="ms-auto align-items-center">
                      <Link to="/home">Home</Link>
                      <Link to="/product">Product</Link>
+                     <Link to="/about">About us</Link>
                      {user?.email && <Link to="/dashboard">Dashboard</Link>}
                      {user?.email ? <div>
                         <small className="displayName">{user?.displayName}</small>

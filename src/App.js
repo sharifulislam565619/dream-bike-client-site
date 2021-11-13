@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './components/Context/AuthProvider';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import About from './components/Pages/Home/About/About';
 import Home from './components/Pages/Home/Home/Home';
 import Login from './components/Pages/Home/Login/Login';
 import NotFound from './components/Pages/Home/NotFound/NotFound';
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/product">
               <Products></Products>
+            </Route>
+            <Route path="/about">
+              <About></About>
             </Route>
             <PrivateRoute path="/order/:id">
               <Order></Order>

@@ -12,6 +12,8 @@ const ManageProducts = () => {
          .then(data => {
             setProducts(data)
             setIsLoading(false)
+         }).catch((e) => {
+
          })
    }, [approved])
 

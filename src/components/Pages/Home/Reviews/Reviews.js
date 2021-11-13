@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import Rating from 'react-rating';
+import userPhoto from '../../../../images/userPhoto.png';
 
 const Reviews = () => {
    const [reviews, setReviews] = useState([])
@@ -10,6 +11,9 @@ const Reviews = () => {
       fetch("https://fathomless-taiga-77170.herokuapp.com/reviews")
          .then(res => res.json())
          .then(data => setReviews(data))
+         .catch(() => {
+
+         })
    }, [])
 
    return (
@@ -27,7 +31,7 @@ const Reviews = () => {
                   >
                      <Card className="p-3">
                         <div className="d-flex align-items-center ms-3">
-                           <Card.Img variant="top" style={{ width: '70px', height: "70px", borderRadius: '50%' }} className="m-0 my-2" src={review?.photoURL} />
+                           <Card.Img variant="top" style={{ width: '70px', height: "70px", borderRadius: '50%' }} className="m-0 my-2" src={review?.photoURL || userPhoto} />
                            <div className="ms-3">
                               <Card.Title>
                                  {review?.name}

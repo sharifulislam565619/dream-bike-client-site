@@ -14,7 +14,6 @@ const MyOrders = () => {
 
 
 
-
    const handleDelete = (id) => {
       setDeleted(true)
       const proceed = window.confirm("Are you sure delete this Order ??")
@@ -31,7 +30,10 @@ const MyOrders = () => {
             .then(result => {
                if (result.deletedCount > 0) {
                   setDeleted(false)
+
                }
+            }).catch((e) => {
+
             })
       }
    }
@@ -44,7 +46,11 @@ const MyOrders = () => {
             setOrders(data)
             setIsLoading(false)
 
-         });
+         })
+         .catch((e) => {
+
+         })
+         ;
    }, [deleted]);
 
 

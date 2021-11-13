@@ -88,9 +88,12 @@ const useFirebase = () => {
    }
 
    useEffect(() => {
-      fetch(`https://fathomless-taiga-77170.herokuapp.com/users/${user?.email}`,)
+      fetch(`https://fathomless-taiga-77170.herokuapp.com/users/${user.email}`)
          .then(res => res.json())
          .then(data => setAdmin(data?.admin))
+         .catch((e) => {
+
+         })
    }, [user?.email])
 
    useEffect(() => {
@@ -105,6 +108,7 @@ const useFirebase = () => {
       });
 
    }, [])
+
 
 
    // sign out

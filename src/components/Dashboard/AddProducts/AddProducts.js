@@ -28,6 +28,7 @@ const AddProducts = () => {
 
    return (
       <div>
+
          <h1 className="text-success">Add a new Product</h1>
          <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
 
