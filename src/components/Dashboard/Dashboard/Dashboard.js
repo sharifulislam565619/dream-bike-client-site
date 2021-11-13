@@ -1,5 +1,5 @@
 import { Nav, Navbar } from 'react-bootstrap';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Link, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
 import userPhoto from '../../../images/userPhoto.png';
 import useAuth from '../../hooks/useAuth';
 import NotFound from '../../Pages/Home/NotFound/NotFound';
@@ -18,6 +18,9 @@ import ManageProducts from './MangeProducts/ManageProducts';
 const Dashboard = () => {
    let { path, url } = useRouteMatch();
    const { logOut, admin, user } = useAuth()
+
+   const history = useHistory()
+   const uri = "/home"
 
    return (
       <>
@@ -63,7 +66,7 @@ const Dashboard = () => {
                         <li><i className="fas fa-luggage-cart"></i> <Link to={`${url}/manageProducts`}>ManageProducts</Link></li>
                      </div>}
                   </ul>
-                  <button onClick={logOut} className="btn my-button"><i className="fas fa-sign-out-alt"></i> Sign out</button>
+                  <button onClick={() => logOut(history, uri)} className="btn my-button"><i className="fas fa-sign-out-alt"></i> Sign out</button>
                </Nav>
 
 

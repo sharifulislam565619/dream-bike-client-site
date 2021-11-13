@@ -5,7 +5,6 @@ import userPhoto from '../../../../images/userPhoto.png';
 
 const Reviews = () => {
    const [reviews, setReviews] = useState([])
-   console.log(reviews);
 
    useEffect(() => {
       fetch("https://fathomless-taiga-77170.herokuapp.com/reviews")

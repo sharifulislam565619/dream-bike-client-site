@@ -112,10 +112,12 @@ const useFirebase = () => {
 
 
    // sign out
-   const logOut = () => {
+   const logOut = (history, uri) => {
       setIsLoading(true)
       signOut(auth).then(() => {
          setUser({})
+         history?.push(uri)
+         window.location.reload();
       }).catch((error) => {
          setError(error)
       })
