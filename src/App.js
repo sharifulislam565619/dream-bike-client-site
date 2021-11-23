@@ -1,4 +1,7 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './components/Context/AuthProvider';
@@ -14,6 +17,9 @@ import Register from './components/Pages/Home/Register/Register';
 
 
 function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 })
+  }, [])
   return (
     <div className="App">
       <AuthProvider>

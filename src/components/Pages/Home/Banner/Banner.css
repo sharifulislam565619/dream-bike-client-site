@@ -1,16 +1,38 @@
 .banner img {
   width: 10%;
   height: 550px;
+  animation: mymove 8s infinite;
+}
+
+/* div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  
+  animation: mymove 5s infinite;
+} */
+
+@keyframes mymove {
+  from {
+    transform: scale(100%);
+  }
+
+  to {
+    transform: scale(120%);
+  }
 }
 
 .Typewriter__wrapper {
   font-size: 50px;
   color: #1bff00;
   font-weight: bold;
- 
 }
 
-.carousel-caption{
+.carousel-indicators button {
+  display: none;
+}
+
+.carousel-caption {
   top: 5%;
 }
 @media only screen and (max-width: 668px) {
@@ -19,7 +41,7 @@
   }
   .Typewriter__wrapper {
     font-size: 30px;
-}
+  }
 }
 @media only screen and (min-width: 669px) and (max-width: 990px) {
   .banner img {

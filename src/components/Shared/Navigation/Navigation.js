@@ -14,7 +14,7 @@ const Navigation = () => {
       <>
          <Navbar className="py-0 navbar" bg="primary" collapseOnSelect expand="lg" variant="dark">
             <Container>
-               <Navbar.Brand >
+               <Navbar.Brand data-aos="flip-right">
                   <Link to="/">
                      <img src={logo} style={{ width: "150px", borderRadius: "10px", height: "55px" }} alt="" />
                   </Link>

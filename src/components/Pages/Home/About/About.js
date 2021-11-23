@@ -12,10 +12,10 @@ const About = () => {
             <h2 className="pt-4 text-primary">About us</h2>
             <hr />
             <div className="row">
-               <div className="col-md-5">
+               <div data-aos='zoom-in' className="col-md-5">
                   <img className="img-fluid" src={img} alt="" />
                </div>
-               <div className="col-md-7">
+               <div data-aos='fade-left' className="col-md-7">
                   <p className="text-start p-3">
                      Founded in 2020 in Amsterdam, dream-bike.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of buy bike Inc.  dream-bike.com’s mission is to make it easier for everyone to experience the world.
 

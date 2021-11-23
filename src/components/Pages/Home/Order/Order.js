@@ -81,7 +81,7 @@ const Order = () => {
             <Row xs={1} md={2} className="g-4">
 
 
-               <Col>
+               <Col data-aos='fade-right'>
                   {
                      isLoading && <Spinner className="mt-5 fs-3" animation="border" variant="black" />
                   }
@@ -97,7 +97,7 @@ const Order = () => {
                   </Card>
                </Col>
 
-               <form className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
+               <form data-aos='fade-left' className="mt-5 place-order-form" onSubmit={handleSubmit(onSubmit)}>
 
                   <input required placeholder="Your name" defaultValue={user?.displayName} {...register("name", { required: true })} />
                   <input required type="text" placeholder="Your email" defaultValue={user?.email} {...register("emailAddress")} />

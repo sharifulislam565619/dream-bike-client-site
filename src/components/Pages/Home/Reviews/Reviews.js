@@ -1,10 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import Rating from 'react-rating';
+import SwiperCore, { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 import userPhoto from '../../../../images/userPhoto.png';
 
+
+
+SwiperCore.use([Autoplay]);
 const Reviews = () => {
+
    const [reviews, setReviews] = useState([])
+   const [valueButton, setValueButton] = useState("See more")
+   const [isShown, setShow] = useState(false);
+
+   const handleMore = () => {
+      setShow(true)
+      if (isShown) {
+         setValueButton("See Less");
+      } else {
+         setValueButton("See More");
+      }
+   }
 
    useEffect(() => {
       fetch("https://fathomless-taiga-77170.herokuapp.com/reviews")
@@ -15,14 +34,24 @@ const Reviews = () => {
          })
    }, [])
 
+
    return (
       <div className="my-5">
          <h2 className="mt-3 text-success">Customer review</h2>
          <hr className="w-25 mx-auto" />
          <Container>
-            <Row spacing={4}>
+            <Swiper
+
+               autoplay={{ delay: 2000 }}
+               disableOnInteraction={false}
+               spaceBetween={50}
+               slidesPerView={2}
+               onSlideChange={() => console.log('slide change')}
+               onSwiper={(swiper) => console.log(swiper)}
+            >
+
                {
-                  reviews.map(review => <Col
+                  reviews.map(review => <SwiperSlide
                      key={review._id}
                      xm={12} sm={12} lg={6} md={6}
                      className="g-4"
@@ -45,13 +74,16 @@ const Reviews = () => {
                            </div>
                         </div>
                         <Card.Text className="text-start">
-                           <small> {review?.comment.slice(0, 250)}...</small>
+                           <small> {!isShown ? review?.comment.slice(0, 100)
+                              : review?.comment.slice(0, review?.comment?.length)}...
+                              <button onClick={() => handleMore()}>{valueButton}</button>
+                           </small>
                         </Card.Text>
                      </Card>
 
-                  </Col>)
+                  </SwiperSlide>)
                }
-            </Row>
+            </Swiper>
          </Container>
       </div>
    );

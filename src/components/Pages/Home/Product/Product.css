@@ -1,11 +1,21 @@
 .data-cart {
-   text-align: center;
-   box-shadow: 0px 10px 14px rgb(189 189 189);
-   transition-duration: 1s;
- }
- 
- .data-cart:hover {
-   box-shadow: 10px 10px 30px rgb(189 189 189);
-   transition-duration: 1s;
-   transform: scale(101%);
- }
+  text-align: center;
+  box-shadow: 0px 10px 14px rgb(189 189 189);
+  transition: 1s;
+}
+
+.data-cart:hover {
+  box-shadow: 10px 10px 30px rgb(189 189 189);
+  transition-duration: 1s;
+  transform: scale(101%);
+}
+
+.card-img {
+  overflow: hidden;
+}
+.card-img img {
+  transition: 1s;
+}
+.card-img img:hover {
+  transform: scale(200%);
+}
