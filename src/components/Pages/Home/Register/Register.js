@@ -47,7 +47,7 @@ const Register = () => {
    return (
       <>
          <Navigation></Navigation>
-         <div className="register-form py-4">
+         <div className="register-form py-4 mt-5">
 
             <div className="my-cart fs-6">
                <h2>Please Register</h2>

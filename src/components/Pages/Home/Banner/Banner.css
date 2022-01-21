@@ -1,6 +1,6 @@
 .banner img {
   width: 10%;
-  height: 550px;
+  height: 100vh;
   animation: mymove 8s infinite;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .carousel-caption {
-  top: 5%;
+  top: 15%;
 }
 @media only screen and (max-width: 668px) {
   .banner img {

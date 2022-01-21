@@ -12,7 +12,7 @@ const Navigation = () => {
    const uri = "/home"
    return (
       <>
-         <Navbar className="py-0 navbar" bg="primary" collapseOnSelect expand="lg" variant="dark">
+         <Navbar fixed="top" className="py-0 navbar" bg="dark" collapseOnSelect expand="lg" variant="dark">
             <Container>
                <Navbar.Brand data-aos="flip-right">
                   <Link to="/">

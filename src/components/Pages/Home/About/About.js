@@ -8,7 +8,7 @@ const About = () => {
    return (
       <>
          <Navigation></Navigation>
-         <div className="container pb-3 mt-3 about" id="about">
+         <div className="container pb-3 my-5 about" id="about">
             <h2 className="pt-4 text-primary">About us</h2>
             <hr />
             <div className="row">
@@ -17,9 +17,7 @@ const About = () => {
                </div>
                <div data-aos='fade-left' className="col-md-7">
                   <p className="text-start p-3">
-                     Founded in 2020 in Amsterdam, dream-bike.com has grown from a small Dutch start-up to one of the world’s leading digital travel companies. Part of buy bike Inc.  dream-bike.com’s mission is to make it easier for everyone to experience the world.
-
-                     By investing in technology that takes the friction out of businesses, dream-bike.com seamlessly connects millions of travelers to memorable experiences, a variety of transportation options, and incredible places to stay – from homes to hotels, and much more. As one of the world’s largest travel marketplaces for both established brands and entrepreneurs of all sizes, dream-bike.com enables properties around the world to reach a global audience and grow their businesses.
+                     This is Shariful islam. I'm full stack web developer (MERN). If you want to create a responsive website. I'll create your website as you like. I'm Specialized in Html5, CSS3, Bootstrap, ReactBootstrap, MaterialUi, Tailwind, Javascript, ReactJS, NodeJS, ExpressJS, MongoDB, Firebase Authentication. I would love to work on your projects. If you have any questions do not hesitate to contact me I'll do your work. I work fast and you will get guaranteed quality results.
                   </p>
                </div>
             </div>
