@@ -1,18 +1,19 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import Typewriter from 'typewriter-effect';
-import bg from '../../../../images/bg1.jpg';
-import bg3 from '../../../../images/bg2.jpg';
+import slider_1 from '../../../../images/slider_1.png';
+import slider_2 from '../../../../images/slider_2.png';
+import slider_3 from '../../../../images/slider_3.png';
 import './Banner.css';
 
 const Banner = () => {
    return (
-      <Carousel interval={4000} fade className="banner">
+      <Carousel interval={4000} fade className="banner container">
          <Carousel.Item>
 
             <img
                className="d-block w-100"
-               src='https://i.ibb.co/MMSLXyh/racing-hero.jpg'
+               src={slider_1}
                alt="First slide"
             />
             <Carousel.Caption>
@@ -29,7 +30,7 @@ const Banner = () => {
          <Carousel.Item>
             <img
                className="d-block w-100"
-               src={bg}
+               src={slider_2}
                alt="Second slide"
             />
 
@@ -46,7 +47,7 @@ const Banner = () => {
          <Carousel.Item>
             <img
                className="d-block w-100"
-               src={bg3}
+               src={slider_3}
                alt="Third slide"
             />
 

@@ -29,7 +29,7 @@ const MakeAdmin = () => {
 
 
    return (
-      <div>
+      <div className='my-5'>
          {
             show && <div>
 

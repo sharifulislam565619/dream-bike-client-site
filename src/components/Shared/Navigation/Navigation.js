@@ -12,7 +12,7 @@ const Navigation = () => {
    const uri = "/home"
    return (
       <>
-         <Navbar fixed="top" className="py-0 navbar" bg="dark" collapseOnSelect expand="lg" variant="dark">
+         <Navbar className="py-2 navbar container" collapseOnSelect expand="lg" variant="dark">
             <Container>
                <Navbar.Brand data-aos="flip-right">
                   <Link to="/">
@@ -22,10 +22,10 @@ const Navigation = () => {
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                <Navbar.Collapse id="responsive-navbar-nav" >
                   <Nav className="ms-auto align-items-center">
-                     <Link to="/home">Home</Link>
-                     <Link to="/product">Product</Link>
-                     <Link to="/about">About us</Link>
-                     {user?.email && <Link to="/dashboard">Dashboard</Link>}
+                     <Link className='nav-before' to="/home"><small>Home</small></Link>
+                     <Link className='nav-before' to="/product"><small>Product</small></Link>
+                     <Link className='nav-before' to="/about"><small>About us</small></Link>
+                     {user?.email && <Link className='nav-before' to="/dashboard"><small>Dashboard</small></Link>}
                      {user?.email ? <div>
                         <small className="displayName">{user?.displayName}</small>
                         <small><img style={{ width: "50px", borderRadius: "50%", marginRight: "5px" }} src={user?.photoURL || userPhoto} alt="" /></small>

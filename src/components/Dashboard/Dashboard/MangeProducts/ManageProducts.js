@@ -44,7 +44,7 @@ const ManageProducts = () => {
 
 
    return (
-      <div>
+      <div className='my-5'>
          <h2 className="text-success">Manage all Products</h2>
          {
             isLoading && <Spinner className="fs-3 my-5" animation="border" variant="black" />

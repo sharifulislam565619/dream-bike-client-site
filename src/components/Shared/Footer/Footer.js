@@ -19,7 +19,7 @@ const Footer = () => {
             <Link to="/">Privacy Policy</Link>
             <Link to="/">Contact Us</Link>
          </div>
-         <div data-aos='zoom-in'>
+         <div >
             <h6 className="mt-3"><small>&copy; 2021 By Shariful islam</small></h6>
          </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
 
 const Review = () => {
@@ -18,7 +18,7 @@ const Review = () => {
          .then((res) => res.json())
          .then((result) => {
             if (result.acknowledged) {
-               setShow(true)
+               swal("Good job!", "Thank you. Your review successfully added !!", "success");
                reset()
             }
          });
@@ -26,22 +26,7 @@ const Review = () => {
 
    return (
       <div >
-         {
-            show && <div>
 
-               <Modal className="modal-open" show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                     <Modal.Title>Dream bike says</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>Thank you. Your review successfully added !!</Modal.Body>
-                  <Modal.Footer>
-                     <Button variant="secondary" onClick={handleClose}>
-                        Ok
-                     </Button>
-                  </Modal.Footer>
-               </Modal>
-            </div>
-         }
          <h2 style={{ marginTop: "120px", color: "#0ba75f" }}>Please express your opinion</h2>
 
 

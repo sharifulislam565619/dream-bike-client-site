@@ -67,8 +67,8 @@ const ManageAllOrders = () => {
 
 
    return (
-      <div className="my-table">
-         <h2 className="mt-3 text-success ">Manage All Orders</h2>
+      <div className="my-table my-5" >
+         <h2 className="mt-3 text-success">Manage All Orders</h2>
 
          {
             isLoading && <Spinner className="fs-3" animation="border" variant="black" />
@@ -79,8 +79,6 @@ const ManageAllOrders = () => {
                <tr>
                   <th className="table-head">#</th>
                   <th>Name</th>
-                  <th className="table-head">Email Address</th>
-                  <th className="table-head">Phone</th>
                   <th className="table-head">Address</th>
                   <th className="table-head">Product name</th>
                   <th className="table-head">Status</th>
@@ -94,8 +92,6 @@ const ManageAllOrders = () => {
                   <tr>
                      <td className="table-body">{index + 1}</td>
                      <td>{order?.name}</td>
-                     <td className="table-body">{order?.emailAddress}</td>
-                     <td className="table-body">{order?.phone}</td>
                      <td className="table-body">{order?.address}</td>
                      <td className="table-body">{order?.orderName}</td>
                      <td><small className={order?.status === "Shipped" ? "text-primary" : "text-dark"}>{order?.status}</small></td>

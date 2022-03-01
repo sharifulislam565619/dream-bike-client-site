@@ -1,10 +1,16 @@
 .App {
   text-align: center;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
+body {
+  background-color: #0f0826;
+  overflow-x: hidden;
+}
 .my-button {
-  background: linear-gradient(335.64deg, #fd609f -19.22%, #fa0a66 118.87%);
+  background: linear-gradient(335.64deg, #fd72aa -19.22%, #c7004c 118.87%);
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -15,7 +21,7 @@
 }
 
 .my-button:hover {
-  background: linear-gradient(45deg, #ff55c1, #f8072f);
+  background: linear-gradient(45deg, #ff00a2, #ff002b);
   color: white;
 }
 

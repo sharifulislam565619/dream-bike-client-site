@@ -4,17 +4,30 @@
   margin-right: 25px;
 }
 
-.navbar a:hover {
-  border-bottom:3px solid white ;
- 
+.nav-before small {
+  position: relative;
 }
+
+.nav-before:hover small::before {
+  margin-top: 5px;
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 100%;
+  width: 100%;
+  left: 0;
+  height: 7px;
+  border-radius: 2px;
+  background: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+}
+
 .navbar a:last-child {
-  border-bottom:none;
- 
+  border-bottom: none;
 }
 
 .displayName {
-  color: yellow;
+  color: #1909ff;
   font-style: italic;
   margin-right: 5px;
 }
+/*# sourceMappingURL=Navigation.css.map */

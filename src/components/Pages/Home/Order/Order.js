@@ -1,12 +1,14 @@
 import { React, useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../../Shared/Footer/Footer';
 import Navigation from '../../../Shared/Navigation/Navigation';
 import './Order.css';
+
 
 
 const Order = () => {
@@ -19,7 +21,7 @@ const Order = () => {
    const { user } = useAuth()
 
 
-   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const { register, handleSubmit, reset } = useForm();
    const onSubmit = data => {
 
       data.email = user?.email;
@@ -37,7 +39,12 @@ const Order = () => {
          .then((res) => res.json())
          .then((result) => {
             if (result.acknowledged) {
-               setShow(true)
+               swal({
+                  title: "Good job!",
+                  text: "Your order is successfully proceed",
+                  icon: "success",
+                  button: "Ok",
+               });
                reset()
             }
          });
@@ -58,24 +65,11 @@ const Order = () => {
          })
    }, [])
 
+
+
    return (
       <div>
-         {
-            show && <div>
 
-               <Modal className="modal-open" show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                     <Modal.Title>Dream bike says</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>Congratulation your order is proceed !!</Modal.Body>
-                  <Modal.Footer>
-                     <Button variant="secondary" onClick={handleClose}>
-                        Ok
-                     </Button>
-                  </Modal.Footer>
-               </Modal>
-            </div>
-         }
          <Navigation />
          <Container className='mt-5'>
             <Row xs={1} md={2} className="g-4">
@@ -83,7 +77,7 @@ const Order = () => {
 
                <Col data-aos='fade-right'>
                   {
-                     isLoading && <Spinner className="mt-5 fs-3" animation="border" variant="black" />
+                     isLoading && <div className='mx-auto'><Spinner className="mt-5 fs-3" animation="border" variant="white" /></div>
                   }
                   <Card>
                      <Card.Img variant="top" className='w-75 m-3 mx-auto' src={product?.img} />
@@ -107,7 +101,7 @@ const Order = () => {
                      placeholder="Address" />
                   <input type="submit" className="btn my-button" value="Order Submit" />
 
-                  <Link to="/home">	<button className="btn btn-outline-dark">back to home page</button></Link>
+                  <Link to="/home">	<button className="btn btn-outline-primary">back to home page</button></Link>
                </form>
 
 

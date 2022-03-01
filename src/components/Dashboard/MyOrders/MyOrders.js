@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardGroup, Col, Container, Row, Spinner } from 'react-bootstrap';
+import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
+import './MyOrders.css';
 
 
 
@@ -10,32 +12,40 @@ const MyOrders = () => {
    const [deleted, setDeleted] = useState(true)
    const [isLoading, setIsLoading] = useState(true)
 
-
-
-
-
    const handleDelete = (id) => {
       setDeleted(true)
-      const proceed = window.confirm("Are you sure delete this Order ??")
-      if (proceed) {
+      swal({
+         title: "Are you sure?",
+         text: "Once deleted, you will not be able to recover this imaginary file!",
+         icon: "warning",
+         buttons: true,
+         dangerMode: true,
+      })
+         .then((willDelete) => {
+            if (willDelete) {
+               fetch(`https://fathomless-taiga-77170.herokuapp.com/deleteOrder/${id}`, {
+                  method: 'DELETE',
+                  headers: {
+                     "content-type": "application/json"
+                  },
+                  body: JSON.stringify(),
+               })
+                  .then(res => res.json())
+                  .then(result => {
+                     if (result.deletedCount > 0) {
+                        setDeleted(false)
 
-         fetch(`https://fathomless-taiga-77170.herokuapp.com/deleteOrder/${id}`, {
-            method: 'DELETE',
-            headers: {
-               "content-type": "application/json"
-            },
-            body: JSON.stringify(),
-         })
-            .then(res => res.json())
-            .then(result => {
-               if (result.deletedCount > 0) {
-                  setDeleted(false)
+                     }
+                  }).catch((e) => {
 
-               }
-            }).catch((e) => {
-
-            })
-      }
+                  })
+               swal("Poof! Your imaginary file has been deleted!", {
+                  icon: "success",
+               });
+            } else {
+               swal("Your imaginary file is safe!");
+            }
+         });
    }
 
    useEffect(() => {
@@ -55,9 +65,9 @@ const MyOrders = () => {
 
 
    return (
-      <div>
+      <div className="mb-5">
 
-         <h2 className="text-success">Your total order is : {orders?.length}</h2>
+         <h2 className="text-success my-4">Your total order is : {orders?.length}</h2>
 
          {
             isLoading && <Spinner className="fs-3" animation="border" variant="black" />
@@ -70,7 +80,7 @@ const MyOrders = () => {
                      key={order._id}
                   >
                      <CardGroup>
-                        <Card className="py-3 data-cart">
+                        <Card className="py-3 order-card data-cart">
                            <div className="ms-auto"><button style={{ background: "#7a946482", border: "none" }} >Order {order?.status}</button></div>
                            <Card.Img variant="top" className="mx-auto w-50" src={order?.img} />
 

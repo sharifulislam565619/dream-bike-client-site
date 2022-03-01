@@ -24,7 +24,7 @@ const Dashboard = () => {
 
    return (
       <>
-         <Navbar className="py-0 navbar " fixed="top" bg="dark" collapseOnSelect expand="lg" variant="dark">
+         <Navbar className=" navbar dashboard-navbar" fixed="top" collapseOnSelect expand="lg" variant="dark">
             <>
                <Navbar.Brand >
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
 
 
-         <div className="offcanvas offcanvas-start bg-dark text-white sidebar-nav" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+         <div className="offcanvas offcanvas-start text-white sidebar-nav my-offcanvas" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
             <div className="offcanvas-header">
 
 

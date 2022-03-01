@@ -36,7 +36,7 @@ const Reviews = () => {
 
 
    return (
-      <div className="my-5">
+      <div data-aos="fade-up" className="my-5 py-5">
          <h2 className="mt-3 text-success">Customer review</h2>
          <hr className="w-25 mx-auto" />
          <Container>
@@ -57,9 +57,9 @@ const Reviews = () => {
                      className="g-4"
 
                   >
-                     <Card className="p-3">
+                     <Card style={{ backgroundColor: 'rgb(12 1 71)', color: '#fff' }} className="p-3">
                         <div className="d-flex align-items-center ms-3">
-                           <Card.Img variant="top" style={{ width: '70px', height: "70px", borderRadius: '50%' }} className="m-0 my-2" src={review?.photoURL || userPhoto} />
+                           <Card.Img variant="top" style={{ width: '70px', height: "70px", borderRadius: '50%', backgroundColor: '#22174B' }} className="m-0 my-2" src={review?.photoURL || userPhoto} />
                            <div className="ms-3">
                               <Card.Title>
                                  {review?.name}

@@ -18,7 +18,7 @@ import Register from './components/Pages/Home/Register/Register';
 
 function App() {
   useEffect(() => {
-    AOS.init({ duration: 1000 })
+    AOS.init({ duration: 1700 })
   }, [])
   return (
     <div className="App">
